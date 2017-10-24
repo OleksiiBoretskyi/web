@@ -1,0 +1,113 @@
+body {
+  width: 1000px;
+  margin: auto;
+  background-image: url(pic5.jpg);
+  font: 30Spx arial;
+}
+.img {
+	background-image: url(pic7.jpg);
+	display: block;
+	width: 700px;
+	height:350px;
+}
+.img:hover {
+	background-image: url(slide-image-1.jpg);
+}
+
+
+
+.headline{
+  width: 1100px;
+  display: block;
+  margin-top: 50px;
+  font: 40px arial;
+  text-align: center;
+  color: white;
+  background-color: yellow;
+
+}
+.picslide{
+  animation-duration: 2s;
+  animation-name: slidepic;
+}
+@keyframes slidepic {
+from {
+margin-left: 100%;
+}
+to {
+margin-left: 0%;
+}
+}
+.maintext{
+  width: 800px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font: 20px tahoma;
+
+  }
+.header{
+  width: 1000px;
+  float: right;
+  height: auto;
+  line-height: 40px;
+  }
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul.menu > li {
+    float: left;
+    position: relative;
+}
+ul.menu > li > a {
+    display: block;
+    padding: 10px;
+    width: 140px;
+    color: white;
+    background-color: green;
+    text-decoration: none;
+
+}
+ul.menu > li > a:hover {
+    background-color: black;
+    animation-duration: 0.5s;
+    animation-name: hover;
+    font-size: 20px;
+}
+ul.submenu {
+    display: none;
+    position: absolute;
+    width: 120px;
+    top: 50px;
+    left: 0;
+    background-color: white;
+    border: 1px solid red;
+}
+ul.submenu > li {
+    display: block;
+}
+ul.submenu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+}
+ul.submenu > li > a:hover {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  font-size: 20px;
+  animation-duration: 0.8s;
+  animation-name: hover;
+}
+ul.menu > li:hover > ul.submenu {
+display: block;
+font-size: 14px;
+}
