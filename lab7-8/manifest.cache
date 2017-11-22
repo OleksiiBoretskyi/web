@@ -1,0 +1,18 @@
+CACHE MANIFEST
+
+CACHE:
+main.html
+news.html
+error.html
+coments.html
+images.jpg
+pic2.jpg
+1.png
+css/bootstrap.css
+css/style.css
+js/bootstrap.min.js
+js/jquery-3.2.1.js
+js/magnific-popup.js
+
+FALLBACK:
+/error.html
