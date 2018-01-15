@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.cache">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap CSS -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="#">
+    
+  </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="main.html">Головна</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="news.html">Новини <span class="sr-only">(current)</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Студенти
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Програма</a>
+          <a class="dropdown-item" href="#">Лабораторні</a>
+          <a class="dropdown-item" href="#">Літературна</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="coments.html">Відгуки</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Контакти</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin.html">Админ</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="headline">
+        Новини
+      </div>
+      <div data-ng-app="indexDBSample" data-ng-controller="TodoController as vm">
+             <div class="container1" ng-repeat="todo in vm.todos">
+                 <section class="news" id="personDataTable">
+                     <article>
+                         <h4></h4>
+                         <h4></h4>
+                         <h4></h4>
+                     </article>
+
+                 </section>
+             </div>
+             <!-- ./end Row -->
+         </div>
+      <div class="maintext">
+      <i>Із змінами, внесеними Законами України<br/>
+       від 8 грудня 2004 року N 2222-IV,<br/>
+       від 1 лютого 2011 року N 2952-VI,<br/>
+      від 19 вересня 2013 року N 586-VII,<br/>
+       від 21 лютого 2014 року N 742-VII,<br/>
+       від 2 червня 2016 року N 1401-VIII<br/>
+      Закон України<br/>
+      від 8 грудня 2004 року N 2222-IV<br/>
+       визнано таким, що не відповідає Конституції України (є неконституційним),<br/>
+       згідно з Рішенням Конституційного Суду України<br/>
+      від 30 вересня 2010 року N 20-рп/2010 у зв'язку з порушенням<br/>
+       конституційної процедури його розгляду та прийняття.</i>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <img src="images/unnamed.png" class="rounded mx-auto d-block">
+            some news some news some news some news some news some news some news some news some news
+          </div>
+          <div class="col">
+            <img src="images/unnamed.png" class="rounded mx-auto d-block">
+            some news some news some news some news some news some news some news some news some news
+          </div>
+          <div class="col">
+            <img src="images/unnamed.png" class="rounded mx-auto d-block">
+            some news some news some news some news some news some news some news some news some news
+          </div>
+        </div>
+      </div>
+      <div class="wrapper row3">
+    <section class="hoc container clear">
+        <div class="center btmspace-50">
+            <br>
+        </div>
+        <ul class="nospace group" id="news_list">
+
+
+        </ul>
+        <br>
+        <br>
+    </section>
+</div>
+
+      <script>
+      window.addEventListener('load', function () {
+
+    function updateOnlineStatus(event) {
+        if (isOnline()) {
+            ReadOflineNews();
+        }
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+});
+
+function isOnline() {
+    return window.navigator.onLine;
+}
+
+
+function ReadOflineNews() {
+    if (useLocalStorage) {
+        len = localStorage.length + 1;
+        for (var k = 1; k < len; k++) {
+            $("#news_list").prepend("<li class=\"list-group-item\">\n" +
+                "    <article class=\"element\">\n" +
+                "        <figure><img src=\"images/unnamed.png\" alt=\"\">\n" +
+                "            <figcaption><a href=\"#\"><i class=\"fa fa-eye\"></i></a></figcaption>\n" +
+                "        </figure>\n" +
+                "        <div class=\"excerpt\">\n" +
+                "            <h6 class=\"heading\"></h6>\n" +
+                "            <p class=\"longdescription\"></p>\n" +
+                "            <p class=\"shortdescription\"></p>\n" +
+                "        </div>\n" +
+                "    </article>\n" +
+                "</li></br>");
+
+            news = JSON.parse(localStorage.getItem(k));
+            console.log(news[0].name);
+            console.log(news[0].shortdescription);
+            console.log(news[0].longdescription);
+
+            $('#news_list li:first .heading').append(news[0].name);
+            $('#news_list li:first .shortdescription').append(news[0].shortdescription);
+            $('#news_list li:first .longdescription').append(news[0].longdescription);
+        }
+    }
+    else {
+        var transaction = db.transaction(["news"], "readonly");
+        var store = transaction.objectStore("news");
+
+        store.openCursor().onsuccess = function (e) {
+            var cursor = e.target.result;
+            if (cursor) {
+                cursor.continue();
+                $("#news_list").prepend("<li class=\"list-group-item\">\n" +
+                    "    <article class=\"element\">\n" +
+                    "        <figure><img src=\"images/unnamed.png\" alt=\"\">\n" +
+                    "            <figcaption><a href=\"#\"><i class=\"fa fa-eye\"></i></a></figcaption>\n" +
+                    "        </figure>\n" +
+                    "        <div class=\"excerpt\">\n" +
+                    "            <h6 class=\"heading\"></h6>\n" +
+                    "            <p class=\"shortdescription\"></p>\n" +
+                    "            <p class=\"longdescription\"></p>\n" +
+                    "        </div>\n" +
+                    "    </article>\n" +
+                    "</li></br>");
+
+                $('#news_list li:first .heading').append(cursor.value.name);
+                $('#news_list li:first .shortdescription').append(cursor.value.shortdescription);
+                $('#news_list li:first .longdescription').append(cursor.value.longdescription);
+            }
+        }
+    }
+}
+      </script>
+      <script src="js/admin.js"></script>
+      <script src="js/indexeddb.js"></script>
+  <script src='js/jquery-3.2.1.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/magnific-popup.js'></script>
+<script data-semver="1.2.28" src="https://code.angularjs.org/1.2.28/angular.js" data-require="angular.js@1.2.x"></script>
+<script src="https://code.angularjs.org/1.2.28/angular-route.js"></script>
+<script src='js/jquery.min.js'></script>
+<script src="js/listify-json.js"></script>
+  </body>
+  </html>
